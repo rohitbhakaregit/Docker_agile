@@ -1,0 +1,16 @@
+version: '3'
+services:
+  nodeapp:
+    image: 1383/nodejs/agile1
+    ports:
+      - "5005:3000"
+    volumes:
+      - /app/node_modules
+      - .:/app
+
+  nodetest:
+    image: 1383/nodejs/agile1
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["nmp", "run" ,"test"]
